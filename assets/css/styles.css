@@ -1,0 +1,182 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #171100
+    ;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: "Poppins", sans-serif;
+    
+}
+a {
+    text-decoration: none;
+}
+.content{
+    width:1110px;    
+    max-width: calc(100% - 48px);
+    max-width: 100%;    
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFFCF4;
+}
+.btn {
+    display: inline-block;
+    min-width: 144px;
+    padding: 11px 41px;
+    background: var(--primary-color);
+    border-radius: 2.45rem;
+    font-weight: 600;
+    font-size: 1.6rem;
+    text-align: center;
+    color: #ffffff;
+}
+
+
+
+
+header {
+    background: #FFFCF4;
+    padding-top: 36px;
+}
+.navbar{
+    display: flex;
+    gap:70px;
+    
+}
+.navbar .logo {
+    flex-grow: 2;
+}
+.navbar ul{
+    display: flex;
+}
+.navbar ul li {
+margin-left: 42px;
+}
+.navbar ul li:nth-child(1){
+    margin-left: 0;
+}
+.navigation {
+font-family: Poppins;
+font-size: 16px;
+font-weight: 600;
+line-height: 28px;
+letter-spacing: 0em;
+text-align: center;
+
+}
+
+/* BRIEF */
+.brief{
+    background: #FFFCF4;
+    height: 200px;
+    /* dont use margin-top: because it makes a white gap between brief and navigation section */
+    padding: 65px 0;
+    height: calc(100vh - 38px);
+    display:flex;
+
+}
+.brief .content {
+    display: flex;
+    gap:130px
+}
+.brief ul li  {
+    display: flex;
+    align-items: center;
+    margin-top: 14px;
+    margin-left: 24px;
+}
+.brief .img {
+    position: relative;
+}
+.brief .img .courses-info {
+    position: absolute;
+    top:393px;
+    left:300px;
+    background: #ffffff;
+    width: 270px;
+    border-radius: 1.2rem;
+}
+.brief .img .program {
+    margin-left: 16px;
+}
+.brief .courses-info ul {
+    padding: 24px 0
+}
+
+.brief .info .title {
+    font-weight: 700;
+    font-size: 5.8rem;
+    line-height: 6.8rem;
+    letter-spacing: -0.02em;
+    color: #171100;
+    margin-bottom: 2.2rem;
+
+}
+.brief .info .description {
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 3rem;
+    color: #5F5B53;
+}
+.brief .actions {
+    display: flex;
+    margin-top: 38px;
+    margin-bottom: 48px;
+}
+.brief .actions .btn-see-courses {
+    width: 180px;
+    height: 64px;
+    padding:23px 34px;
+    background: #FFB900;
+    border-radius: 3.2rem;
+    margin-right: 28px;
+}
+.brief .watch-video {
+    display: flex;
+    align-items: center;
+}
+.brief .watch-video p {
+    position: relative;
+    top:-7px;
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: #171100;
+}
+.brief .engagement .sub-title {
+font-weight: 400;
+font-size: 1.8rem;
+line-height: 30px;
+color: #5F5B53;
+}
+.brief .engagement-figure {
+    display: flex;
+}
+.brief .engagement-figure .engagment-figure-detail {
+    margin-right: 28px;
+}
+.brief .engagment-figure-detail {
+    display: flex;
+    gap:15px
+}
+.brief .engagment-figure-detail h3 {
+    font-weight: 700;
+    font-size: 4.4rem;
+    line-height: 30px;
+    color: #171100;
+}
+.brief .engagment-figure-detail p {
+    align-self: flex-end;
+}
