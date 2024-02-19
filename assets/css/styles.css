@@ -3,10 +3,13 @@
 }
 
 :root {
-    --primary-color: #171100
-    ;
+    --secondary-color:#FFB900;
+    --primary-color: #171100;
+    --font-sen: "Sen",sans-serif;
 }
-
+.test{
+    height:80px
+}
 html,
 body {
     scroll-behavior: smooth;
@@ -25,16 +28,16 @@ a {
     text-decoration: none;
 }
 .content{
-    width:1110px;    
+    width:1170px;    
     max-width: calc(100% - 48px);
     max-width: 100%;    
     margin-left: auto;
     margin-right: auto;
-    background-color: #FFFCF4;
 }
 .btn {
     display: inline-block;
-    min-width: 144px;
+    min-width: 118px;
+    /* width: 118px; */
     padding: 11px 41px;
     background: var(--primary-color);
     border-radius: 2.45rem;
@@ -42,22 +45,48 @@ a {
     font-size: 1.6rem;
     text-align: center;
     color: #ffffff;
+    cursor:pointer;
+}
+
+.btn:hover {
+    opacity: 0.9
+}
+
+.title {
+    font-family: var(--font-sen);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #171100;
+
 }
 
 
 
 
-header {
+
+.header {
     background: #FFFCF4;
-    padding-top: 36px;
+    padding: 36px 0 8px;
+    z-index: 1;
+}
+
+.header.fixed{
+    position: sticky;
+    top:-28px
 }
 .navbar{
     display: flex;
-    gap:70px;
+    align-items: center;
     
 }
-.navbar .logo {
+.actions {
+    margin-left: 70px;
+}
+/* .navbar .logo {
     flex-grow: 2;
+} */
+.navbar .navigation {
+    margin-left: auto;
 }
 .navbar ul{
     display: flex;
@@ -68,64 +97,119 @@ margin-left: 42px;
 .navbar ul li:nth-child(1){
     margin-left: 0;
 }
-.navigation {
+.navigation a{
 font-family: Poppins;
 font-size: 16px;
 font-weight: 600;
 line-height: 28px;
 letter-spacing: 0em;
 text-align: center;
+position: relative;
 
 }
-
+.navigation li.active a,.navigation a:hover {
+    /* why dont use font-weight, it cause lagging */
+    /* font-weight: 600; */
+    text-shadow: 1px 0 0 currentColor;
+    color:#171100
+}
+.navigation li.active a::after {
+    content:"";
+    display: block;
+    position: absolute;
+    left:0;
+    width: 12px;
+    height: 2px;
+    background: #171100;
+    border-radius: 1px;
+}
+.actions .sign-up-btn {
+    min-width: 144px;
+}
 /* BRIEF */
 .brief{
     background: #FFFCF4;
-    height: 200px;
     /* dont use margin-top: because it makes a white gap between brief and navigation section */
-    padding: 65px 0;
-    height: calc(100vh - 38px);
-    display:flex;
-
+    padding: 56px 0 65px;
+    /* height: calc(100vh - 38px); */
 }
-.brief .content {
+
+.display-flex {
     display: flex;
-    gap:130px
 }
 .brief ul li  {
     display: flex;
     align-items: center;
     margin-top: 14px;
-    margin-left: 24px;
 }
 .brief .img {
     position: relative;
+    width: 48%;
+}
+.brief .info {
+    position: relative;
+    width: 52%;
 }
 .brief .img .courses-info {
     position: absolute;
-    top:393px;
-    left:300px;
+    bottom:48px;
+    right:0;
     background: #ffffff;
     width: 270px;
+    box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.05);
     border-radius: 1.2rem;
+    padding: 24px
+}
+.courses-info .icon{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #fff9e8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.courses-info .pink-color {
+    background: #FCEFFF;
+}
+.courses-info .violet-color {
+    background: #EBEAFF;
+}
+.brief .img .image {
+    width: 470px;
+    height: 685px;
+    object-fit: cover;
+    border-radius: 20px;
+    /* vertical-align remove tiny gap  */
+    vertical-align: bottom;
 }
 .brief .img .program {
     margin-left: 16px;
 }
-.brief .courses-info ul {
+/* .brief .courses-info ul {
     padding: 24px 0
+} */
+.brief .total-courses {
+    font-size: 1.4rem;
+    line-height: 1.86;
+    color: #5f5b53
 }
-
+.brief .program-name {
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 1.67;
+    color: #171100
+}
+.brief .info {
+    padding:65px 0 0 130px
+}
 .brief .info .title {
-    font-weight: 700;
     font-size: 5.8rem;
-    line-height: 6.8rem;
-    letter-spacing: -0.02em;
-    color: #171100;
-    margin-bottom: 2.2rem;
+    line-height: 1.17;
 
 }
 .brief .info .description {
+    margin-top: 2.2rem;
     font-weight: 400;
     font-size: 1.8rem;
     line-height: 3rem;
@@ -133,27 +217,37 @@ text-align: center;
 }
 .brief .actions {
     display: flex;
-    margin-top: 38px;
-    margin-bottom: 48px;
+    margin: 38px 0 48px
 }
 .brief .actions .btn-see-courses {
-    width: 180px;
+    min-width: 180px;
     height: 64px;
     padding:23px 34px;
-    background: #FFB900;
+    background: var(--secondary-color);
     border-radius: 3.2rem;
     margin-right: 28px;
 }
 .brief .watch-video {
     display: flex;
     align-items: center;
+    cursor: pointer;
+
+}
+.brief .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow:  0px 8px 16px rgba(0, 0, 0,0.07);
 }
 .brief .watch-video p {
-    position: relative;
-    top:-7px;
     font-weight: 600;
     font-size: 1.8rem;
     color: #171100;
+    margin-left: 14px;
 }
 .brief .engagement .sub-title {
 font-weight: 400;
@@ -167,16 +261,148 @@ color: #5F5B53;
 .brief .engagement-figure .engagment-figure-detail {
     margin-right: 28px;
 }
-.brief .engagment-figure-detail {
-    display: flex;
-    gap:15px
-}
-.brief .engagment-figure-detail h3 {
+
+.brief .engagment-figure-detail .stats {
     font-weight: 700;
     font-size: 4.4rem;
-    line-height: 30px;
+    line-height: 1.23;
     color: #171100;
 }
 .brief .engagment-figure-detail p {
     align-self: flex-end;
+}
+
+/* POPULAR COURSES */
+.popular-courses {
+    margin-top: 200px;
+}
+.course-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.course-header .title {
+font-family: 'Sen';
+font-weight: 700;
+font-size: 3.8rem;
+line-height: 48px;
+/* identical to box height, or 126% */
+letter-spacing: -0.02em;
+
+color: #171100;
+margin-bottom: 8px;
+}
+.course-header .description {
+margin-top: 8px;
+font-family: 'Poppins';
+font-weight: 400;
+font-size: 18px;
+line-height: 30px;
+color: #5F5B53;
+}
+.course-header .content {
+    width: 458px;
+}
+.course-navigation {
+    display: flex;
+}
+.vector{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+width: 40px;
+height: 40px;
+/* transform: matrix(-1, 0, 0, 1, 0, 0); */
+border: 1px solid #FFB900;
+
+}
+.vector-right {
+    background: #FFB900;
+    margin-left: 18px;
+}
+
+.list-item{
+    display: flex;
+    justify-content: space-between;
+}
+.item {
+    width: 370px;
+    height: 466px;
+
+
+background: #FFFFFF;
+border: 1px solid #E2DFDA;
+border-radius: 12px;
+
+
+
+}
+.image{
+width: 100%;
+height: 278px;
+border-radius: 12px 12px 0px 0px;
+
+}
+.courses-info .list-item {
+    margin-top: 55px;
+}
+.courses-info .item .title {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 30px;
+color: #171100;
+display: flex;
+justify-content: space-between;
+margin-bottom: 3px;
+}
+.courses-info .course-summary {
+    padding: 16px 22px 22px 22px
+}
+.courses-info .course-summary .score {
+font-family: 'Poppins';
+font-weight: 400;
+font-size: 16px;
+line-height: 28px;
+color: #FEA31B;
+
+}
+
+.courses-info .course-summary .desc {
+margin-top: 3px;
+margin-bottom: 6px;
+font-family: 'Poppins';
+font-weight: 400;
+font-size: 14px;
+line-height: 26px;
+color: #5F5B53;
+}
+.course-summary .price {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 30px;
+color: #171100;
+
+
+}
+.cta {
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+.btn-book{
+height: 50px;
+line-height: 26px;
+font-size: 1.4rem;
+font-weight: 600;
+padding: 12px 24px;
+background: #171100
+
+}
+.btn-book:hover{
+    background: #FFB900;
 }
